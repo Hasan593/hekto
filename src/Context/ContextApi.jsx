@@ -1,18 +1,26 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
+import axios from 'axios';
 
-const ContextApi = ({children}) => {
+const apiData = createContext();
 
-    const apiData = createContext();
+const ContextApi = ({ children }) => {
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        axios.get('https://dummyjson.com/products')
+            .then(res => setData(res.data.products))
+    }, []);
 
     return (
         <>
-            <apiData.Provider>
+            <apiData.Provider value={data}>
                 {children}
             </apiData.Provider>
         </>
     );
 };
 
-export default ContextApi;
+export { apiData, ContextApi }
