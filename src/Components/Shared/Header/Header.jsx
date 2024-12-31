@@ -2,8 +2,9 @@ import logo from '../../../assets/HL-full-Logo.png';
 import { FiMenu, FiShoppingCart } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { FaHeart } from "react-icons/fa";
-import {  } from "react-icons/fi";
+import { } from "react-icons/fi";
 import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -14,12 +15,14 @@ const Navbar = () => {
     };
 
     return (
-        <header className="bg-gray-500 text-white shadow-md fixed z-50 w-full top-0 mt-[45px] md:mt-[54px]">
+        <header className="bg-gray-500 text-white shadow-md sticky w-full z-40 top-0">
             <nav className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 <div className="relative flex items-center justify-between h-16">
                     <div className="flex-1 flex items-center justify-between sm:items-stretch sm:justify-between">
                         <div className="flex-shrink-0">
+                            <Link to='/'>
                                 <img className='h-[44px] w-[150px]' src={logo} alt="HL Dream Store" />
+                            </Link>
                         </div>
 
                         {/* Search Bar */}
@@ -36,12 +39,12 @@ const Navbar = () => {
 
                         {/* Navbar Links for Desktop */}
                         <div className="hidden sm:flex sm:items-center sm:space-x-4">
-                            <button to="/product" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
+                            <NavLink to="/products" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                                 Product
-                            </button>
-                            <p to="/about" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
+                            </NavLink>
+                            <NavLink to="/about" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                                 About
-                            </p>
+                            </NavLink>
                             <p to="/contact" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                                 Contact
                             </p>
@@ -78,9 +81,9 @@ const Navbar = () => {
                 {/* Mobile Menu - Hidden by default */}
                 <div className={`sm:hidden overflow-hidden transition-all duration-1000 ease-in-out ${menuOpen ? 'max-h-[500px]' : 'max-h-0'}`}>
                     <div className="flex flex-col space-y-4 items-center p-4 bg-gray-500">
-                        <p to="/product" className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
+                        <NavLink to="/products" className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                             Product
-                        </p>
+                        </NavLink>
                         <p to="/about" className={({ isActive }) => isActive ? 'bg-fuchsia-500 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-gray-700 hover:text-white"}>
                             About
                         </p>

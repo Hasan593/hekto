@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const StickyNavbar = () => {
     return (
-        <section className="bg-[#7E33E0] text-white fixed w-full top-0 z-50">
+        <section className="bg-[#7E33E0] text-white w-full top-0 z-50">
             <div className="mx-auto px-4">
                 {/* Desktop and Tablet View */}
                 <div className="hidden md:flex justify-between py-[15px] items-center">

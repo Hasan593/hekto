@@ -1,15 +1,15 @@
-import Home from '../../Pages/Home/Home';
-import Header from '../Shared/Header/Header';
-import baner from '../../assets/Img/banner.png'
+import { Outlet } from 'react-router-dom';
+import Header from '../Shared/Header/Header'
 import StickyNavbar from '../Shared/Header/StickyNavbar';
+import PageHeading from '../PageHeading';
 
 const MainLayout = () => {
     return (
         <>
-        <StickyNavbar />
+            <StickyNavbar />
             <Header />
-            <img src={baner} alt="" className='mt-[115px]'/>
-            <Home />
+            <PageHeading />
+            <Outlet />
         </>
     );
 };
