@@ -79,9 +79,12 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu - Hidden by default */}
-                <div className={`sm:hidden overflow-hidden transition-all duration-1000 ease-in-out ${menuOpen ? 'max-h-[500px]' : 'max-h-0'}`}>
+                <div className={`sm:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? 'max-h-[500px]' : 'max-h-0'}`}>
                     <div className="flex flex-col space-y-4 items-center p-4 bg-gray-500">
-                        <NavLink to="/products" className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
+                        <NavLink to="/products" 
+                        className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
+                        onClick={toggleMenu}
+                        >
                             Product
                         </NavLink>
                         <p to="/about" className={({ isActive }) => isActive ? 'bg-fuchsia-500 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-gray-700 hover:text-white"}>

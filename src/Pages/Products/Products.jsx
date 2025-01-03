@@ -24,7 +24,7 @@ const Products = () => {
         <div className="flex flex-col md:flex-row gap-8 px-4 lg:px-8 py-8">
             {/* Sidebar */}
 
-                <Sidebar products={products} handleCategory={handleCategory} />
+                <Sidebar setCat={setCat} products={products} handleCategory={handleCategory} />
 
             {/* Products Grid */}
             <div className="w-full md:w-3/4">
@@ -81,7 +81,7 @@ const Products = () => {
                         ))
                     ) :
                         (
-                            <div className="w-full flex justify-center items-center">
+                            <div className="w-full flex justify-center items-center col-span-3 md:mt-20">
                                 <Loading />
                             </div>
                         )
