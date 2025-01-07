@@ -1,7 +1,7 @@
 const WishList = () => {
     return (
         <>
-            
+            This is Wishlist
         </>
     );
 };

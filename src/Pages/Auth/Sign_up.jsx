@@ -1,7 +1,7 @@
 const Sign_up = () => {
     return (
         <>
-            
+         This is Sign up Page   
         </>
     );
 };

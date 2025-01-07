@@ -66,10 +66,10 @@ const Sidebar = ({ products, handleCategory, setCat }) => {
     };
 
     return (
-        <div className="sidebar bg-white shadow-lg rounded-lg p-4 mt-5 w-full md:w-1/4 sticky top-[64px] z-30">
+        <div className="bg-white shadow-lg rounded-lg px-2 w-full md:pb-4">
             <h2
-                className="text-2xl font-bold text-[#101750] flex items-center cursor-pointer mb-4 md:sticky md:top-[100px]"
-                onClick={() => handleActiveCategory()}
+                className="text-2xl font-bold text-[#101750] flex items-center cursor-pointer mb-4"
+                onClick={handleActiveCategory}
 
             >
                 Category
@@ -85,7 +85,7 @@ const Sidebar = ({ products, handleCategory, setCat }) => {
             </h2>
 
             <ul
-                className={`transition-all md:duration-500 duration-300 ease-in-out space-y-3 sticky top-[120px] 
+                className={`transition-all md:duration-500 duration-300 ease-in-out space-y-3 sticky top-[140px] 
                     ${toggle ? "max-h-[300px]" : "max-h-0"} 
                     overflow-hidden`}
             >
@@ -94,14 +94,14 @@ const Sidebar = ({ products, handleCategory, setCat }) => {
                         key={index}
                         // onClick={isMobile ? () => handleMobileClick(category) : () => handleDesktopClick(category)}
                         onClick={() => handleCategoryToggle(category)}
-                        className={`capitalize text-lg text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200
-                            ${active === category ? "text-[26px] text-pink-600 font-medium hover:text-pink-600" : "text-[24px]"}`}
+                        className={`border-b-2 border-b-pink-500 pb-1 capitalize text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200
+                            ${active === category ? "text-[21px] text-pink-600 font-medium hover:text-pink-600" : "text-[20px]"}`}
                     >
                         {category}
                     </li>
                 ))}
-                <li
-                    className="capitalize text-lg text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200 text-[24px]"
+                <li 
+                    className="border-b-2 border-b-pink-500 pb-1 capitalize text-[20px] text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200"
                     onClick={handleAllProduct}
                 >
                     All Product

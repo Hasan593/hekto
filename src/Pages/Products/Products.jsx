@@ -6,6 +6,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { LuZoomIn } from "react-icons/lu";
 import Sidebar from "./Sidebar";
+import Price from "./Price";
 
 const Products = () => {
     const [cat, setCat] = useState([]);
@@ -22,9 +23,18 @@ const Products = () => {
 
     return (
         <div className="flex flex-col md:flex-row gap-8 px-4 lg:px-8 py-8">
-            {/* Sidebar */}
 
-                <Sidebar setCat={setCat} products={products} handleCategory={handleCategory} />
+            <div className="md:w-1/4 sticky top-[64px] md:top-[80px] z-30 h-[450px]">
+                {/* Sidebar */}
+                <div className="sticky">
+                    <Sidebar setCat={setCat} products={products} handleCategory={handleCategory} />
+                </div>
+
+                {/* Price */}
+                <div className="sticky">
+                    <Price />
+                </div>
+            </div>
 
             {/* Products Grid */}
             <div className="w-full md:w-3/4">

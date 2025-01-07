@@ -3,12 +3,12 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 const Footerr = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <Footer bgDark>
+        <Footer bgDark className="bg-slate-300">
             <div className="w-full">
                 <div className="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
                     <div>
                         <FooterTitle title="Company" />
-                        <FooterLinkGroup col>
+                        <FooterLinkGroup col className="mt-5">
                             <FooterLink href="#">About</FooterLink>
                             <FooterLink href="#">Careers</FooterLink>
                             <FooterLink href="#">Brand Center</FooterLink>
@@ -17,7 +17,7 @@ const Footerr = () => {
                     </div>
                     <div>
                         <FooterTitle title="help center" />
-                        <FooterLinkGroup col>
+                        <FooterLinkGroup col className="mt-5">
                             <FooterLink href="#">Discord Server</FooterLink>
                             <FooterLink href="#">Twitter</FooterLink>
                             <FooterLink href="#">Facebook</FooterLink>
@@ -26,7 +26,7 @@ const Footerr = () => {
                     </div>
                     <div>
                         <FooterTitle title="legal" />
-                        <FooterLinkGroup col>
+                        <FooterLinkGroup col className="mt-5">
                             <FooterLink href="#">Privacy Policy</FooterLink>
                             <FooterLink href="#">Licensing</FooterLink>
                             <FooterLink href="#">Terms &amp; Conditions</FooterLink>
@@ -34,7 +34,7 @@ const Footerr = () => {
                     </div>
                     <div>
                         <FooterTitle title="download" />
-                        <FooterLinkGroup col>
+                        <FooterLinkGroup col className="mt-5">
                             <FooterLink href="#">iOS</FooterLink>
                             <FooterLink href="#">Android</FooterLink>
                             <FooterLink href="#">Windows</FooterLink>
