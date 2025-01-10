@@ -3,7 +3,7 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 const Footerr = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <Footer bgDark className="bg-slate-300">
+        <Footer bgDark className="bg-slate-300 mt-10">
             <div className="w-full">
                 <div className="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
                     <div>

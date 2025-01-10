@@ -4,7 +4,12 @@ import { IoMdArrowDropdownCircle } from "react-icons/io";
 
 const Price = () => {
 
+    const [active, setActive] = useState(null);
     const [toggle, setToggle] = useState(false);
+
+    const handleActive = (index) => {
+        setActive(index)
+    }
 
     const handleActiveCategory = () => {
         setToggle(!toggle)
@@ -13,7 +18,7 @@ const Price = () => {
     return (
         <div className="bg-white shadow-lg rounded-lg px-2 w-full md:pb-4">
             <h2
-                className="text-2xl font-bold text-[#101750] flex items-center cursor-pointer mb-4 md:sticky md:top-[100px]"
+                className="text-2xl font-bold text-[#101750] flex items-center cursor-pointer mb-4 md:sticky "
                 onClick={handleActiveCategory}
             >
                 Price
@@ -33,30 +38,22 @@ const Price = () => {
                     ${toggle ? "max-h-[300px]" : "max-h-0"}  
                         overflow-hidden`}
             >
-
-                <li
-                    className={`border-b-2 border-b-pink-500 pb-1 capitalize text-[20px] text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200`}
-                >
-                    1 - 100
-                </li>
-                <li
-                    className={`border-b-2 border-b-pink-500 pb-1 capitalize text-[20px] text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200`}
-                >
-                    100 - 500
-                </li>
-                <li
-                    className={`border-b-2 border-b-pink-500 pb-1 capitalize text-[20px] text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200`}
-                >
-                    500 - 1000
-                </li>
-                <li
-                    className={`border-b-2 border-b-pink-500 pb-1 capitalize text-[20px] text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200`}
-                >
-                    1000 - 10000
-                </li>
+                {
+                    ["1 - 100", "100 - 500", "500 - 1000", "1000 - 10000"].map((price, index) => (
+                        <li 
+                        key={index}
+                        className={`border-b-2 border-b-pink-500 pb-1 capitalize text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200
+                            ${active === index ? "text-[21px] text-pink-600 font-medium hover:text-pink-600" : "text-[20px]"}`}
+                            onClick={()=>handleActive(index)}
+                        >
+                            {price}
+                        </li>
+                    ))
+                }
 
                 <li
                     className="border-b-pink-500 border-b-2 pb-1 capitalize text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200 text-[20px]"
+                    onClick={()=>(setToggle(!toggle), setActive(null))}
                 >
                     All Price
                 </li>

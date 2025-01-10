@@ -39,23 +39,35 @@ const Navbar = () => {
 
                         {/* Navbar Links for Desktop */}
                         <div className="hidden sm:flex sm:items-center sm:space-x-4">
-                            <NavLink to="/products" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
+                            <NavLink to="/products"
+                                className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
+                            >
                                 Product
                             </NavLink>
-                            <NavLink to="/about" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
+                            <NavLink to="/about"
+                                className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
+                            >
                                 About
                             </NavLink>
-                            <NavLink to="/contact" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
+                            <NavLink to="/contact"
+                                className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
+                            >
                                 Contact
                             </NavLink>
-                            <NavLink to="/cart" className={({ isActive }) => isActive ? 'text-pink-700 px-4 rounded-md font-medium text-lg' : "text-white px-4 rounded-md text-lg font-medium hover:text-white"}>
-                                <FiShoppingCart className='h-[32px] w-[32px]' />
+                            <NavLink to="/cart"
+                                className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
+                            >
+                                <FiShoppingCart className='h-[28px] w-[40px]' />
                             </NavLink>
-                            <NavLink to="/wishList" className={({ isActive }) => isActive ? 'text-pink-700 px-4 rounded-md font-medium text-lg' : "text-white px-4 rounded-md text-lg font-medium hover:text-white flex"}>
+                            <NavLink to="/wishList"
+                                className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
+                            >
                                 {/* <FaRegHeart className='text-pink-700 h-[40px] w-[40px]' /> */}
-                                <FaHeart className='h-[32px] w-[32px]' />
+                                <FaHeart className='h-[28px] w-[40px]' />
                             </NavLink>
-                            <NavLink to="/auth/sign_in" className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
+                            <NavLink to="/auth/sign_in"
+                                className={({ isActive }) => isActive ? 'bg-pink-700 px-3 py-2 rounded-md font-medium text-lg' : "text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
+                            >
                                 Sign-In
                             </NavLink>
                         </div>
@@ -77,27 +89,34 @@ const Navbar = () => {
 
                 {/* Mobile Menu - Hidden by default */}
                 <div className={`sm:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? 'max-h-[500px]' : 'max-h-0'}`}>
-                    <div className="flex flex-col space-y-4 items-center p-4 bg-gray-500">
-                        <NavLink to="/products" 
-                        className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
+                    <div
+                        className="flex flex-col space-y-4 items-center p-4 bg-gray-500"
                         onClick={toggleMenu}
+                    >
+                        <NavLink to="/products"
+                            className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}
                         >
                             Product
                         </NavLink>
-                        <NavLink to="/about" className={({ isActive }) => isActive ? 'bg-fuchsia-500 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-gray-700 hover:text-white"}>
+                        <NavLink to="/about"
+                            className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                             About
                         </NavLink>
-                        <NavLink to="/contact" className={({ isActive }) => isActive ? 'bg-fuchsia-500 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-gray-700 hover:text-white"}>
+                        <NavLink to="/contact"
+                            className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                             Contact
                         </NavLink>
-                        <NavLink to="/cart" className={({ isActive }) => isActive ? 'text-pink-700 px-4 rounded-md font-medium text-lg w-full' : "w-full text-white px-4 rounded-md text-lg font-medium hover:text-white"}>
+                        <NavLink to="/cart"
+                            className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                             <FiShoppingCart className='h-[32px] w-[32px] mx-auto' />
                         </NavLink>
-                        <NavLink to="/wishList" className={({ isActive }) => isActive ? 'text-pink-700 px-4 rounded-md font-medium text-lg w-full' : "w-full text-white px-4 rounded-md text-lg font-medium hover:text-white"}>
+                        <NavLink to="/wishList"
+                            className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                             {/* <FaRegHeart className='text-pink-700 h-[40px] w-[40px]' /> */}
                             <FaHeart className='h-[32px] w-[32px] mx-auto' />
                         </NavLink>
-                        <NavLink to="/auth/sign_in" className={({ isActive }) => isActive ? 'bg-fuchsia-500 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-gray-700 hover:text-white"}>
+                        <NavLink to="/auth/sign_in"
+                            className={({ isActive }) => isActive ? 'bg-pink-700 text-center w-full py-2 rounded-md font-medium text-lg' : "text-white text-center w-full py-2 rounded-md text-lg font-medium hover:bg-pink-500 hover:text-white"}>
                             Sign-In
                         </NavLink>
 
