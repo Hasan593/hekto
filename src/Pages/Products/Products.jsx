@@ -10,21 +10,32 @@ import Price from "./Price";
 
 const Products = () => {
     const [cat, setCat] = useState([]);
+    const [price, setPrice] = useState([]);
     const products = useContext(apiData);
 
     const handleCategory = (item) => {
         setCat(products.length > 0 ? products.filter(product => product.category === item) : []);
     };
+    const handlePrice = (low, high) => {
+        setPrice(products.length > 0 ? products.filter(product => product.price > low && product.price <= high) : []);
+        console.log(price)
+    };
 
     // নির্ধারণ করুন কোন ডেটা প্রদর্শন করা হবে
-    const displayProducts = cat.length > 0 ? cat : products;
+    // Filtered products based on category and price
+    const displayProducts =
+        cat.length > 0
+            ? cat.filter(product => price.length === 0 || price.includes(product))
+            : price.length > 0
+                ? price
+                : products;
 
-    console.log("Display Products:", displayProducts);
+    // console.log("Display Products:", displayProducts);
 
     return (
         <div className="flex flex-col md:flex-row gap-8 px-4 lg:px-8 py-8">
 
-            <div className="md:w-1/4 sticky top-[64px] md:top-[80px] z-30 h-[450px]">
+            <div className="md:w-1/4 sticky md:top-[80px] z-30 h-[140px]">
                 {/* Sidebar */}
                 <div className="sticky">
                     <Sidebar setCat={setCat} products={products} handleCategory={handleCategory} />
@@ -32,7 +43,7 @@ const Products = () => {
 
                 {/* Price */}
                 <div className="sticky">
-                    <Price />
+                    <Price handlePrice={handlePrice} products={products} />
                 </div>
             </div>
 
@@ -89,6 +100,10 @@ const Products = () => {
                                 </div>
                             </div>
                         ))
+                    ) : price.length > 0 ? (
+                        <div className="w-full flex justify-center items-center col-span-3 md:mt-20">
+                            <p className="text-lg font-semibold text-red-600">There is no Product</p>
+                        </div>
                     ) :
                         (
                             <div className="w-full flex justify-center items-center col-span-3 md:mt-20">

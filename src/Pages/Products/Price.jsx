@@ -1,19 +1,28 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
 
 
-const Price = () => {
+const Price = ({handlePrice}) => {
 
     const [active, setActive] = useState(null);
     const [toggle, setToggle] = useState(false);
 
-    const handleActive = (index) => {
-        setActive(index)
+    const handleActive = (index, low, high) => {
+        setActive(index);
+        handlePrice(low, high)
     }
 
     const handleActiveCategory = () => {
         setToggle(!toggle)
     };
+
+    const priceRange = [
+        { range: "1 - 100", low: 1, high: 100 },
+        { range: "100 - 500", low: 100, high: 500 },
+        { range: "500 - 1000", low: 500, high: 1000 },
+        { range: "1000 - 10000", low: 1000, high: 10000 },
+    ];
 
     return (
         <div className="bg-white shadow-lg rounded-lg px-2 w-full md:pb-4">
@@ -39,21 +48,25 @@ const Price = () => {
                         overflow-hidden`}
             >
                 {
-                    ["1 - 100", "100 - 500", "500 - 1000", "1000 - 10000"].map((price, index) => (
+                    priceRange.map((price, index) => (
                         <li 
                         key={index}
                         className={`border-b-2 border-b-pink-500 pb-1 capitalize text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200
                             ${active === index ? "text-[21px] text-pink-600 font-medium hover:text-pink-600" : "text-[20px]"}`}
-                            onClick={()=>handleActive(index)}
+                            onClick={()=>handleActive(index, price.low, price.high)}
                         >
-                            {price}
+                            {price.range}
                         </li>
                     ))
                 }
 
                 <li
                     className="border-b-pink-500 border-b-2 pb-1 capitalize text-[#151875] hover:text-green-600 cursor-pointer transition-all duration-200 text-[20px]"
-                    onClick={()=>(setToggle(!toggle), setActive(null))}
+                    onClick={()=>{
+                        setToggle(!toggle);
+                        setActive(null);
+                        handlePrice(0, Infinity)
+                    }}
                 >
                     All Price
                 </li>
