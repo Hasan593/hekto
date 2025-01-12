@@ -63,8 +63,8 @@ const Featured = () => {
             {
                 breakpoint: 480, // মোবাইল স্ক্রিনের জন্য
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                     dots: false // মোবাইল স্ক্রিনে ডটস সরিয়ে ফেলা
                 }
             }
