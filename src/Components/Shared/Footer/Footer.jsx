@@ -43,8 +43,8 @@ const Footerr = () => {
                     </div>
                 </div>
                 <div className="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">
-                    <FooterCopyright href="#" by="HL-Dream™" year={currentYear} />
-                    <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+                    <FooterCopyright className="text-center" href="#"  by=" HL-Dream™"  year={currentYear} />
+                    <div className="mt-4 flex space-x-6 sm:mt-0 justify-between">
                         <FooterIcon href="#" icon={BsFacebook} />
                         <FooterIcon href="#" icon={BsInstagram} />
                         <FooterIcon href="#" icon={BsTwitter} />
