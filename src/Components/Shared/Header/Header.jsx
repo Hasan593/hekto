@@ -3,15 +3,40 @@ import { FiMenu, FiShoppingCart } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { FaHeart } from "react-icons/fa";
 import { } from "react-icons/fi";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { apiData } from '../../../Context/ContextApi';
 
 const Navbar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [search, setSearch] = useState([]);
+    const products = useContext(apiData);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
+    };
+
+    // handleSearch ফাংশনটি একটি ইভেন্ট হ্যান্ডলার, যা ফর্ম সাবমিটের মাধ্যমে কাজ করে
+    // const handleSearchSubmit = (e) => {
+    //     e.preventDefault();
+    //     const searchKey = e.target.elements.search.value.toLowerCase();
+    //     const searchProducts = products.filter((product) =>
+    //         product.title.toLowerCase().includes(searchKey)
+    //     );
+    //     console.log(searchProducts);
+    // };
+
+    /** Handle product Search  **/
+    const handleSearchOnchange = e => {
+        const searchKey = e.target.value.toLowerCase();
+        const searchProducts = products.filter((product) =>
+            product.title.toLowerCase().includes(searchKey)
+        );
+        setSearch(searchProducts)
+        if (e.target.value === '') {
+            setSearch([])
+        };
     };
 
     return (
@@ -26,15 +51,51 @@ const Navbar = () => {
                         </div>
 
                         {/* Search Bar */}
-                        <form className="hidden sm:flex sm:items-center">
-                            <input
-                                type="text"
-                                placeholder="Search..."
-                                className="px-3 py-2 text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
-                            />
-                            <button type="submit" className="ml-2 px-3 py-2 bg-sky-900 text-white rounded-md hover:bg-sky-950">
-                                Search
-                            </button>
+                        <form
+                            // onSubmit={handleSearchSubmit}
+                            className='relative'
+                        >
+                            <div
+                                className="hidden sm:flex sm:items-center"
+                            >
+                                <input
+                                    type="text"
+                                    name='search'
+                                    placeholder="Search..."
+                                    className="z-20 px-3 py-2 text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                                    onChange={handleSearchOnchange}
+                                />
+                                <button
+                                    type="submit"
+                                    className="ml-2 px-3 py-2 bg-sky-900 text-white rounded-md hover:bg-sky-950"
+                                >
+                                    Search
+                                </button>
+                            </div>
+                            <div className='bg-pink-400 rounded-md absolute md:right-0 right-full md:w-full top-10 max-h-[370px] md:max-h-[400px] overflow-auto'>
+                                {
+                                    search.map(product => (
+                                        <div
+                                            key={product.id}
+                                            className='m-1 bg-pink-600 rounded-md'
+                                        >
+                                            <div className="flex items-center gap-2 group cursor-pointer">
+                                                <div className="min-w-20 bg-green-800 overflow-hidden rounded-md">
+                                                    <img
+                                                        src={product.thumbnail}
+                                                        alt="Product Img"
+                                                        className="w-20 transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+                                                    />
+                                                </div>
+                                                <h1 className="text-gray-800 font-medium text-lg transition-colors duration-300 ease-in-out group-hover:text-green-200">
+                                                    {product.title}
+                                                </h1>
+                                            </div>
+
+                                        </div>
+                                    ))
+                                }
+                            </div>
                         </form>
 
                         {/* Navbar Links for Desktop */}
@@ -126,6 +187,7 @@ const Navbar = () => {
                                 type="text"
                                 placeholder="Search..."
                                 className="w-full px-3 py-2 text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                                onChange={handleSearchOnchange}
                             />
                             <button type="submit" className="w-full mt-2 px-3 py-2 bg-sky-900 text-white rounded-md hover:bg-sky-950">
                                 Search

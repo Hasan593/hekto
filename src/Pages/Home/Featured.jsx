@@ -73,7 +73,7 @@ const Featured = () => {
 
     return (
         <section className='sec_pad'>
-            <div className="container mx-auto slider-container px-8"> {/* প্যাডিং সামঞ্জস্য করা হয়েছে */}
+            <div className="w-full md:container mx-auto slider-container px-8"> {/* প্যাডিং সামঞ্জস্য করা হয়েছে */}
                 <div className="text-center">
                     <h2 className='heading md:text-4xl text-2xl font-bold my-10'>Featured Products</h2> {/* আগের মতোই ফন্ট সাইজ রাখা হয়েছে */}
                 </div>
