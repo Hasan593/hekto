@@ -47,7 +47,6 @@ const Sign_in = () => {
                             <form>
                                 {/* <!-- Email input --> */}
                                 <TEInput
-                                    value={name}
                                     type="email"
                                     label="Email address"
                                     size="lg"
@@ -64,7 +63,7 @@ const Sign_in = () => {
 
                                 <div className="mb-5">
                                     {/* Signup */}
-                                    <p>Dont`t have an account? <Link to='/signup' > <a
+                                    <p>Dont`t have an account? <Link to='/auth/sign' > <a
                                         href="#!"
                                         className="font-bold text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
                                     >

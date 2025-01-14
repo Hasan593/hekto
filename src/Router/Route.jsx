@@ -8,8 +8,8 @@ import Cart from '../Pages/Cart/Cart';
 import WishList from '../Pages/WishList/WishList';
 import AuthLayout from '../Components/Layout/AuthLayout';
 import Sign_in from '../Pages/Auth/Sign_in';
-import Sign_up from '../Pages/Auth/Sign_up';
 import NotFound from '../Pages/NotFound/NotFound';
+import Sign_up from '../Pages/Auth/Sign_up';
 
 const Route = createBrowserRouter([
     {
@@ -51,7 +51,7 @@ const Route = createBrowserRouter([
                 element: <Sign_in />
             },
             {
-                path: 'sign_up',
+                path: 'sign',
                 element: <Sign_up />
             }
         ]

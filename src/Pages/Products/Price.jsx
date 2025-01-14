@@ -11,6 +11,7 @@ const Price = ({handlePrice}) => {
     const handleActive = (index, low, high) => {
         setActive(index);
         handlePrice(low, high)
+        setToggle(!toggle)
     }
 
     const handleActiveCategory = () => {
